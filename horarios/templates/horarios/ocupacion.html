@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ocupación de aulas | CBTis 234</title>
+<style>
+:root{--ink:#14233b;--muted:#68758a;--line:#dde4ef;--blue:#1455d9;--pale:#f4f7fc;--green:#087f62}*{box-sizing:border-box}body{margin:0;background:var(--pale);color:var(--ink);font:14px/1.45 "Segoe UI",Arial,sans-serif}.top{background:#10233f;color:white}.nav{max-width:1320px;margin:auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:750}.brand span{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#2463eb}.nav a{color:white;text-decoration:none}.navlinks{display:flex;gap:14px;font-size:13px}main{max-width:1320px;margin:auto;padding:30px 24px 50px}.eyebrow{color:var(--blue);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}h1{margin:6px 0 4px;font-size:34px}.intro{color:var(--muted);margin:0 0 20px}.filters{display:flex;gap:8px;margin:18px 0}.filters a{padding:8px 12px;border:1px solid #d3dbea;border-radius:8px;background:white;text-decoration:none;color:var(--ink);font-size:13px}.filters a.active{background:var(--blue);border-color:var(--blue);color:white}.panel{background:white;border:1px solid var(--line);border-radius:13px;overflow:hidden}.panel-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.panel-head h2{margin:0;font-size:16px}.panel-head span{color:var(--muted);font-size:12px}.scroll{overflow:auto}table{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%;font-size:12px}th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top}th{position:sticky;top:0;z-index:3;background:#f8faff;padding:10px}th:first-child,td:first-child{position:sticky;left:0;z-index:2;min-width:145px;max-width:145px}th:first-child{z-index:4}td:first-child{background:white;font-weight:800;padding:10px}td{min-width:155px;width:155px;height:76px;padding:6px}.slot{display:flex;height:100%;align-items:center}.occupied{width:100%;min-height:62px;border-radius:7px;background:#edf3ff;border-left:3px solid var(--blue);padding:7px}.occupied+.occupied{margin-top:5px}.occupied strong{display:block;color:#2054bd;font-size:12px}.occupied span{display:block;color:var(--muted);font-size:11px}.free{width:100%;text-align:center;color:#9ba5b5;font-size:11px}.badge{display:inline-block;padding:3px 7px;border-radius:99px;background:#e9f7f2;color:var(--green);font-size:11px;font-weight:700}@media(max-width:700px){main{padding:22px 12px}.nav{padding:12px}.navlinks a:first-child{display:none}.filters{overflow-x:auto}.filters a{white-space:nowrap}h1{font-size:28px}}
+@media(max-width:700px){
+	.nav{padding:12px 14px;gap:12px;flex-wrap:wrap}.navlinks{gap:12px;font-size:12px}.navlinks a:first-child{display:inline}
+	main{padding:24px 12px 36px}h1{font-size:clamp(27px,8vw,34px);line-height:1.15}.intro{font-size:13px}
+	.filters{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.filters a{flex:1 1 auto;min-height:40px;padding:8px 9px;text-align:center;display:flex;align-items:center;justify-content:center;line-height:1.25}
+	.panel{border-radius:11px}.panel-head{padding:12px;align-items:flex-start;gap:8px;flex-wrap:wrap}.panel-head span{font-size:11px}
+	.scroll{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin}
+	.scroll table{font-size:11px}.scroll th{padding:8px 6px;white-space:nowrap}.scroll th:first-child,.scroll td:first-child{min-width:112px;max-width:112px}.scroll td{min-width:128px;width:128px;height:72px;padding:5px}
+	.occupied{min-height:58px;padding:7px 6px}.occupied strong{font-size:11px}.occupied span{font-size:10px}.free{font-size:10px}
+}
+@media(max-width:380px){.brand{font-size:13px}.navlinks{gap:8px}.navlinks a{font-size:11px}.filters a{font-size:12px}.scroll th:first-child,.scroll td:first-child{min-width:96px;max-width:96px}.scroll td{min-width:116px;width:116px}}
+body{background:radial-gradient(ellipse at 85% 0%,#e0eaff 0,transparent 34%),var(--pale)}
+.top{background:linear-gradient(112deg,#0d1b35,#163b78 70%,#1b4ca0);box-shadow:0 6px 22px #122b511c}
+.brand span{background:linear-gradient(145deg,#66d7ff,#3c74ff);box-shadow:0 5px 15px #2463eb66}
+.navlinks a{padding:8px 11px;border:1px solid #ffffff30;border-radius:10px;transition:background .2s ease,transform .2s ease}
+.navlinks a:hover{background:#ffffff18;transform:translateY(-1px)}
+main>.hero{position:relative;isolation:isolate;overflow:hidden;margin:4px 0 18px;padding:24px 28px;border-radius:23px;color:white;background:linear-gradient(115deg,#10264b,#174b9c 64%,#3979e8);box-shadow:0 18px 38px #204a8b2b;animation:rise-in .5s both}
+main>.hero:after{content:"";position:absolute;z-index:-1;width:230px;height:230px;right:-60px;top:-145px;border:1px solid #ffffff25;border-radius:50%;box-shadow:0 0 0 28px #ffffff0a,0 0 0 58px #ffffff08}
+main>.hero .eyebrow{color:#b8d7ff}main>.hero h1{color:white;margin-top:8px}main>.hero .intro{color:#d5e5ff;margin-bottom:0}
+.filters a{border-radius:11px;box-shadow:0 3px 10px #2038580a;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.filters a:hover{transform:translateY(-2px);box-shadow:0 7px 16px #20385812}.filters a.active{background:linear-gradient(135deg,#1455d9,#3979e8);box-shadow:0 5px 12px #1455d933}
+.panel{border-radius:17px;box-shadow:0 8px 26px #2038580b}.panel-head{background:linear-gradient(180deg,#fff,#fbfcff)}
+.occupied{transition:transform .18s ease,box-shadow .18s ease}.occupied:hover{transform:translateY(-2px);box-shadow:0 5px 12px #2054bd18}
+.scroll{scrollbar-color:#9bb8e8 #eff3fa;scrollbar-width:thin}
+@keyframes rise-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){main>.hero{padding:20px 18px;border-radius:20px;margin-top:0}.filters a:hover{transform:none}}
+/* Filtros agrupados para que no compitan visualmente entre sí. */
+.filter-panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;margin:18px 0 22px;padding:5px 20px;border:1px solid #e1e8f3;border-radius:18px;background:#fff;box-shadow:0 8px 24px #2038580a}
+.filter-heading{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;padding:15px 0 8px;border-bottom:1px solid #edf1f7}
+.filter-heading h2{margin:0;font-size:15px;color:var(--ink)}.filter-heading span{color:var(--muted);font-size:12px}
+.filter-group{min-width:0;padding:13px 0 14px}.filter-group--days{grid-column:1/-1}
+.filter-label{display:block;margin-bottom:8px;color:#71809a;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.filter-options{display:flex;flex-wrap:wrap;gap:7px;margin:0}.filter-panel .filters{margin:0}
+.filter-panel .filters a{flex:0 0 auto;min-height:34px;padding:7px 11px;border-color:#e1e8f2;border-radius:9px;background:#f8faff;box-shadow:none;font-size:12px;line-height:1.2}
+.filter-panel .filters a.active{border-color:#1455d9;color:#fff;background:linear-gradient(135deg,#1455d9,#3979e8);box-shadow:0 4px 10px #1455d92b}
+.filter-panel .filters a:hover{transform:translateY(-1px);background:#edf3ff;box-shadow:none}.filter-panel .filters a.active:hover{background:linear-gradient(135deg,#1455d9,#3979e8)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(max-width:700px){
+	.filter-panel{grid-template-columns:minmax(0,1fr);gap:0;margin:14px 0 18px;padding:0 14px;border-radius:16px}
+	.filter-heading{padding:14px 0 9px;gap:8px}.filter-heading span{font-size:11px}
+	.filter-group,.filter-group--days{grid-column:auto;padding:11px 0;border-bottom:1px solid #edf1f7}
+	.filter-group:last-child{border-bottom:0}.filter-label{margin-bottom:7px;font-size:10px}
+	.filter-options{gap:6px}.filter-panel .filters a{min-height:40px;padding:7px 10px;font-size:12px}
+	.filter-group--days .filter-options{flex-wrap:nowrap;overflow-x:auto;padding:1px 1px 5px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+	.filter-group--days .filters a{flex:0 0 auto}
+	.filter-group--semester .filter-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+	.filter-group--semester .filters a{text-align:center;justify-content:center}
+	.filter-group--types .filter-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+	.filter-group--types .filters a{text-align:center;justify-content:center}
+	.filter-group--rooms{grid-column:auto}
+	.room-options{grid-template-columns:repeat(2,minmax(0,1fr));max-height:220px}
+	.room-option{padding:9px 8px;font-size:11px}
+	.panel-head>span{padding:4px 7px;font-size:11px}
+	.panel-head .badge{min-width:30px;height:30px}
+}
+@media(max-width:380px){.filter-panel{padding:0 11px}.filter-panel .filters a{padding-right:8px;padding-left:8px}}
+.filter-group--rooms{grid-column:1/-1}
+.room-compare{border:1px solid #e1e8f2;border-radius:12px;background:#f8faff;overflow:hidden}
+.room-compare summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:10px 12px;color:#23436f;font-size:13px;font-weight:700;cursor:pointer;list-style:none}
+.room-compare summary::-webkit-details-marker{display:none}.room-compare summary:after{content:"＋";color:var(--blue);font-size:17px}.room-compare[open] summary:after{content:"−"}
+.room-compare summary span{margin-left:auto;color:var(--muted);font-size:11px;font-weight:600}
+.room-form{padding:10px;border-top:1px solid #e1e8f2}
+.room-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;max-height:190px;overflow:auto;padding:2px}
+.room-option{display:flex;align-items:center;gap:8px;min-width:0;padding:9px 10px;border:1px solid #e1e8f2;border-radius:9px;background:white;color:var(--ink);font-size:12px;cursor:pointer}
+.room-option input{width:16px;height:16px;flex:0 0 auto;accent-color:var(--blue)}.room-option span{overflow-wrap:anywhere}
+.room-form button{margin-top:10px;min-height:40px;padding:8px 14px;border:0;border-radius:9px;background:linear-gradient(135deg,#1455d9,#3979e8);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.clear-rooms{display:inline-block;margin:8px 0 0;color:var(--blue);font-size:12px;font-weight:700}
+.panel-head>span{display:flex;align-items:center;gap:7px;padding:5px 10px;border-radius:10px;background:#edf4ff;color:#37577f}
+.panel-head .badge{display:inline-grid;place-items:center;min-width:32px;height:32px;padding:0 7px;border-radius:9px;background:linear-gradient(135deg,#1455d9,#3979e8);color:white;font-size:16px;box-shadow:0 4px 10px #1455d933}
+@media(max-width:700px){.room-options{grid-template-columns:repeat(2,minmax(0,1fr));max-height:220px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="nav"><a class="brand" href="/"><span>234</span> CBTis 234</a><div class="navlinks"><a href="/">← Inicio</a><a href="/admin/">Administración</a></div></div></header>
+<main>
+<header class="hero"><div class="eyebrow">Mapa de espacios</div><h1>Ocupación de aulas</h1><p class="intro">Consulta qué aula está ocupada, por qué grupo y en qué horario.</p></header>
+<section class="filter-panel" aria-label="Filtros de ocupación">
+<div class="filter-heading"><h2>Filtros</h2><span>Elige qué horarios quieres consultar</span></div>
+<div class="filter-group filter-group--days"><span class="filter-label">Día de la semana</span><div class="filters filter-options">
+{% for numero,nombre in dias %}<a href="?dia={{ numero }}&turno={{ turno }}&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula={{ tipo_aula }}&salones={{ salones_seleccionados|join:',' }}" class="{% if dia == numero %}active{% endif %}">{{ nombre }}</a>{% endfor %}
+</div></div>
+<div class="filter-group"><span class="filter-label">Turno</span><div class="filters filter-options"><a href="?dia={{ dia }}&turno=Matutino&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula={{ tipo_aula }}&salones={{ salones_seleccionados|join:',' }}" class="{% if turno == 'Matutino' %}active{% endif %}">Turno matutino</a><a href="?dia={{ dia }}&turno=Vespertino&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula={{ tipo_aula }}&salones={{ salones_seleccionados|join:',' }}" class="{% if turno == 'Vespertino' %}active{% endif %}">Turno vespertino</a></div></div>
+<div class="filter-group filter-group--semester"><span class="filter-label">Semestre</span><div class="filters filter-options"><a href="?dia={{ dia }}&turno={{ turno }}&especialidad={{ especialidad|urlencode }}&tipo_aula={{ tipo_aula }}&salones={{ salones_seleccionados|join:',' }}" class="{% if not semestre %}active{% endif %}">Todos</a>{% for numero in semestres %}<a href="?dia={{ dia }}&turno={{ turno }}&semestre={{ numero }}&especialidad={{ especialidad|urlencode }}&tipo_aula={{ tipo_aula }}&salones={{ salones_seleccionados|join:',' }}" class="{% if semestre == numero|stringformat:'s' %}active{% endif %}">{{ numero }}º semestre</a>{% endfor %}</div></div>
+<div class="filter-group filter-group--types"><span class="filter-label">Tipo de espacio</span><div class="filters filter-options"><a href="?dia={{ dia }}&turno={{ turno }}&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&salones={{ salones_seleccionados|join:',' }}" class="{% if not tipo_aula %}active{% endif %}">Todos</a><a href="?dia={{ dia }}&turno={{ turno }}&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula=AULA&salones={{ salones_seleccionados|join:',' }}" class="{% if tipo_aula == 'AULA' %}active{% endif %}">Aulas</a><a href="?dia={{ dia }}&turno={{ turno }}&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula=ESPECIAL&salones={{ salones_seleccionados|join:',' }}" class="{% if tipo_aula == 'ESPECIAL' %}active{% endif %}">Laboratorios y talleres</a><a href="?dia={{ dia }}&turno={{ turno }}&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula=FUERA&salones={{ salones_seleccionados|join:',' }}" class="{% if tipo_aula == 'FUERA' %}active{% endif %}">Fuera de aula</a></div></div>
+<div class="filter-group filter-group--rooms"><span class="filter-label">Comparar salones</span><details class="room-compare"><summary>Elegir salones <span>{% if salones_seleccionados %}{{ salones_seleccionados|length }} seleccionados{% else %}Todos los salones{% endif %}</span></summary><form method="get" class="room-form">
+<input type="hidden" name="dia" value="{{ dia }}"><input type="hidden" name="turno" value="{{ turno }}"><input type="hidden" name="semestre" value="{{ semestre }}"><input type="hidden" name="especialidad" value="{{ especialidad }}"><input type="hidden" name="tipo_aula" value="{{ tipo_aula }}">
+<div class="room-options">{% for aula in aulas_comparacion %}<label class="room-option"><input type="checkbox" name="salones" value="{{ aula.id }}" {% if aula.seleccionada %}checked{% endif %}><span>{{ aula.nombre }}</span></label>{% empty %}<span>No hay salones registrados.</span>{% endfor %}</div>
+<button type="submit">Mostrar comparación</button>
+{% if salones_seleccionados %}<a class="clear-rooms" href="?dia={{ dia }}&turno={{ turno }}&semestre={{ semestre }}&especialidad={{ especialidad|urlencode }}&tipo_aula={{ tipo_aula }}">Mostrar todos los salones</a>{% endif %}
+</form></details></div>
+</section>
+<section class="panel"><div class="panel-head"><h2>{% for numero,nombre in dias %}{% if dia == numero %}{{ nombre }}{% endif %}{% endfor %} · {{ turno }}</h2><span><b class="badge">{{ bloques_count }}</b> clases programadas</span></div>
+{% for seccion in secciones %}
+<div style="padding:12px 18px 6px;font-weight:800;border-top:1px solid #dde4ef">{{ seccion.titulo }}</div>
+<div class="scroll"><table><thead><tr><th>Aula</th>{% for inicio,fin in intervalos %}<th>{{ inicio|time:"H:i" }}–{{ fin|time:"H:i" }}</th>{% endfor %}</tr></thead><tbody>
+{% for fila in seccion.filas %}<tr><td>{{ fila.aula.nombre }}</td>{% for celda in fila.celdas %}<td><div class="slot">{% if celda.ocupantes %}{% for bloque in celda.ocupantes %}<div class="occupied"><strong>{{ bloque.grupo.nombre }}</strong><span>{{ bloque.materia }}</span></div>{% endfor %}{% else %}<span class="free">Disponible</span>{% endif %}</div></td>{% endfor %}</tr>{% endfor %}
+</tbody></table></div>
+{% empty %}<p style="padding:18px;color:#68758a">No hay espacios que coincidan con los filtros.</p>{% endfor %}
+</section>
+</main>
+</body>
+</html>
